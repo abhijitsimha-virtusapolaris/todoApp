@@ -1,0 +1,22 @@
+<h1>
+  {{title}}
+</h1>
+
+<input type="text" placeholder="Value" [(ngModel)]="newTask.value"/>
+<input type="text" placeholder="Date" [(ngModel)]="newTask.dueDate" />
+<button (click)="addTask(newTask)">Add Task</button>
+
+<table>
+  <tr>
+    <th>Task</th> 
+    <th>Due Date</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let task of tasks">
+    <td>{{task.value}}</td>
+    <td>{{task.dueDate}}</td>
+    <td [class.isDone]="task.isDone">{{task.isDone ? 'Is Done': 'Working On It'}}</td>
+    <td><button class="" (click)="task.isDone = !task.isDone">{{task.isDone ? 'Undo' : 'Done'}}</button></td>
+  </tr>
+</table>
+ 
